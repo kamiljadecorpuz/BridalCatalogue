@@ -1,267 +1,1135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>
-    Ivory Theory Bridal - Anne
-</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=s
+ 
+ <title>
+  Ivory Theory Bridal - Anne
+ </title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=s
 wap" rel="stylesheet">
-<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<style>
-    * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
+ <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+ </script>
+ <meta>
+ 
+ <title>
+  Bridal Shop
+ </title>
+ <style>
+  body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  background-color: #fff;
+  color: #333;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.logo {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.logo span {
+  display: block;
+  font-size: 0.8em;
+  color: #666;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+.banner {
+  background: #a792b7 url('https://via.placeholder.com/1200x200') no-repeat center;
+  background-size: cover;
+  padding: 60px 30px;
+  color: white;
+  text-align: center;
+}
+.banner-content h1 {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+}
+.notice {
+  background-color: #a792b7;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9em;
+}
+.container {
+  display: flex;
+  padding: 30px;
+}
+.sidebar {
+  width: 250px;
+  margin-right: 30px;
+  text-align:left;
+}
+.sidebar h3 {
+  margin-bottom: 10px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.sidebar input,
+.sidebar select {
+  /*width: 100%;*/
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+.categories li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: #555;
+}
+.categories li:hover{
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: #1d1d1d;
+}
+.categories li:hover .chevron-right{
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #1d1d1d;
+    border-bottom: 2px solid #1d1d1d;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    position: relative;
+    top: 0;
+    float: right;
+}
+.products {
+  flex: 1;
+}
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+}
+.product {
+  width: 250px;
+  text-align: center;
+padding:10px;
+margin: 10px;
+transition: 250ms;
+}
+.product:hover{
+transform: scale(1.1);
+box-shadow: 0 0 11px rgba(33,33,33,.2);
+border: 3px #800080;
+background-color: white;
+border-radius: 5px;
+transition-delay: .5s;
+transition: transform .4s ease-in-out;
+border: solid 3px #afa3c2;
+}
+.product img {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+.product h4 {
+  margin: 10px 0 5px;
+  font-size: 1em;
+}
+.product p {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0;
+}
+.product span {
+  display: block;
+  margin-top: 5px;
+  color: #9b84c1;
+  font-weight: bold;
+}
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
     }
     body {
-    background-color: #fff;
-    color: #333;
-    padding: 0 1rem;
+      background-color: #fff;
+      color: #333;
+      padding: 0 1rem;
     }
     .header {
-    background-color: #d5c3e0;
-    color: #fff;
-    text-align: center;
-    padding: 0.5rem 0;
-    font-size: 0.9rem;
+      background-color: #d5c3e0;
+      color: #fff;
+      text-align: center;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      padding:15px;
     }
     .back-button {
-    margin: 1rem 0;
+        margin: 1rem 0;
+        text-align: center;
+        width: auto;
+        position: relative;
+        left: -550px;
     }
     .back-button a {
-    text-decoration: none;
-    color: #aa82c5;
-    font-weight: bold;
-    font-size: 0.9rem;
+      text-decoration: none;
+      color: #aa82c5;
+      font-weight: bold;
+      font-size: 0.9rem;
     }
     .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
     .image-section {
-    flex: 1 1 50%;
+      flex: 1 1 50%;
     }
     .main-image {
-    width: 100%;
-    border-radius: 8px;
+      width: 100%;
+      border-radius: 8px;
     }
     .thumbnail-row {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
     }
     .thumbnail-row img {
-    width: 70px;
-    height: 100px;
-    object-fit: cover;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
+      width: 70px;
+      height: 100px;
+      object-fit: cover;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
     }
     .product-info {
-    flex: 1 1 40%;
+      flex: 1 1 40%;
+      text-align: left;
     }
     .brand {
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    color: #555;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: #555;
     }
     h1 {
-    margin-top: 0.5rem;
-    font-size: 2rem;
-    font-weight: 600;
+      margin-top: 0.5rem;
+      font-size: 2rem;
+      font-weight: 600;
     }
     .price {
-    margin: 1rem 0;
-    font-size: 1.5rem;
-    color: #aa82c5;
+      margin: 1rem 0;
+      font-size: 1.5rem;
+      color: #aa82c5;
     }
     .desc {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: #666;
     }
     .options,
     .size-select,
     .quantity-select,
     .shipping-option {
-    margin: 1rem 0;
+      margin: 1rem 0;
     }
     select,
     button {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 100%;
-    margin-top: 0.5rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      margin-top: 0.5rem;
     }
     button {
-    background-color: #c4afd6;
-    color: #fff;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
+      background-color: #c4afd6;
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
     }
     .store-pickup {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #555;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #555;
     }
     .description {
-    margin-top: 3rem;
-    font-size: 0.9rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
     .sku {
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    color: #aaa;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #aaa;
     }
     @media (max-width: 768px) {
-    .container {
-    flex-direction: column;
+      .container {
+        flex-direction: column;
+      }
+      .thumbnail-row {
+        justify-content: center;
+      }
     }
-    .thumbnail-row {
-    justify-content: center;
+   /*  -----------pagination--------------*/
+    .pagination {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      /*box-shadow: 0 0 8px rgba(0,0,0,0.1);*/
     }
+    .pagination a,
+    .pagination span {
+      padding: 8px 14px;
+      text-decoration: none;
+      color: #333;
+      background-color: #eee;
+      border-radius: 4px;
+      transition: background 0.3s;
     }
-</style>
-<div class="header">
-    Free Shipping on orders totaling more than $2000.00
-</div>
-<div class="back-button">
-    <a href="#">
-← BACK
-</a>
-</div>
-
-<div class="container">
-    <div class="image-section">
-        <img class="main-image" src="https://irt￾cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg
-" alt="Bridal Dress Main">
-        <div class="thumbnail-row">
-            <img src="https://irt￾cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg
-" alt="Thumb1">
-            <img src="https://irt￾cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg
-" alt="Thumb2">
-            <img src="https://irt-
-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg
-" alt="Thumb3">
-            <img src="https://irt￾cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg
-" alt="Thumb4">
-        </div>
+    .pagination a:hover {
+      background-color: #ccc;
+    }
+    .pagination .active {
+      background-color: #A18CC1;
+      color: white;
+      pointer-events: none;
+    }
+    .pagination .disabled {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    .pagination .ellipsis {
+      pointer-events: none;
+      background: transparent;
+    }
+    /* Responsive: Hide some page numbers on smaller screens */
+    @media (max-width: 600px) {
+      .pagination a:not(.prev):not(.next):not(.active):not(:nth-child(3)):not(:last-child),
+      .pagination span.ellipsis {
+        display: none;
+      }
+    }
+ /*  -----------Size Selector--------------*/
+.size-selector {
+      max-width: 400px;
+      margin: auto;
+    }
+    .size-selector h4 {
+      margin-bottom: 16px;
+      font-size: 20px;
+      color: #333;
+      font-weight: semibold;
+    }
+    .sizes {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .size-option {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      background-color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .size-option:hover {
+      border-color: #A18CC1;
+      background-color:#A18CC1;
+      color:white;
+    }
+    .size-option:active {
+      border-color: #A18CC1;
+      background-color:#A18CC1;
+    }
+    .size-option.selected {
+      background-color: #A18CC1;
+      color: #fff;
+      border-color: #A18CC1;
+    }
+    @media (max-width: 500px) {
+      .size-option {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+    /*  -----------Quantity--------------*/
+      .quantity-wrapper {
+      display: flex;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    .quantity-input {
+      width: 40px !important;
+      padding: 6px;
+      font-size: 16px;
+      text-align: center;
+    border-color: #A18CC1 !important;
+      border-radius: 6px;
+      -moz-appearance: textfield;
+    }
+    /* Remove spinners in some browsers */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .quantity-label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+  /*  -----------Sort by--------------*/
+   .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      background: #fff;
+      border-radius: 10px;
+      position: relative;
+      top: -30px;
+      float: right;
+    }
+/* result count */
+    .result-count {
+      font-size: 14px;
+      color: #333;
+      border-radius: 8px;
+      text-align: left;
+    }
+    /* categories selected */
+    .selected-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+.category-tag {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  position: relative;
+}
+.remove-tag {
+  margin-left: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s;
+}
+.filter-actions {
+  /*margin: 20px;*/
+  margin-top:10px;
+  margin-left:10px;
+}
+.clear-filter-btn {
+  background-color: transparent;
+  color: #333;
+  /*padding: 8px 14px;*/
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.clear-filter-btn i {
+  color: #f44336;
+  transition: color 0.3s ease;
+}
+/*.clear-filter-btn:hover {*/
+/*  background-color: #e0e0e0;*/
+/*}*/
+.clear-filter-btn:hover i {
+  color: #d32f2f;
+}
+.remove-tag:hover {
+  color: #f44336;
+}
+/* shipping options */
+.filter-options {
+  font-family: 'Georgia', serif;
+  color: #2f3a4b;
+  max-width: 250px;
+  padding: 10px 0;
+}
+.filter-header {
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+.arrow {
+  font-size: 12px;
+  color: #d3d3d3;
+}
+.checkbox-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.checkbox-list li {
+  margin: 10px 0;
+}
+.checkbox-list input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+  accent-color: #aa82c5;
+}
+/* collapse */
+   .collapsible-container {
+      border-bottom: 2px solid #eceff1;
+      max-width: 400px;
+      position: relative;
+    }
+    .collapsible-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #404759;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 18px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+    .chevron {
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid #cfd8dc;
+      border-bottom: 2px solid #cfd8dc;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+    }
+    .active .chevron {
+      transform: rotate(-135deg);
+    }
+    .chevron-right {
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid #cfd8dc;
+      border-bottom: 2px solid #cfd8dc;
+      transform: rotate(-45deg);
+      transition: transform 0.3s ease;
+      margin-left: 10px;
+      position: relative;
+      top: 0;
+      float: right;
+    }
+    .collapsible-content {
+      display: none;
+      padding-top: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+    .active + .collapsible-content {
+      display: block;
+    }
+/* Description and Reviews */    
+   .tab-header {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 10px;
+    }
+    .tab-button {
+      padding: 10px 0;
+      margin-right: 30px;
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: #aaa;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 13px;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .tab-button.active {
+      color: #9b8cb8;
+    }
+    .tab-button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #9b8cb8;
+    }
+    .tab-content {
+      display: none;
+      font-size: 14px;
+      color: #333;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    /* add to cart button*/
+    .add-cart{
+        width: 180px;
+    }
+    .add-cart:hover{
+        background-color:#696274;
+    }
+    /* page 2 shipping-option */
+       .option {
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 20px;
+      color: #333;
+    }
+    .address {
+      margin-left: 30px;
+      font-style: italic;
+      color: #666;
+      font-size: 18px;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.3);
+       accent-color:#aa82c5; 
+    }
+    input[type="radio"]:checked + label::before {
+    background-color: #aa82c5; /* Your selected color */
+    border-color: #aa82c5;}
+    /* Option thumbnail-selection */
+   .option-img{
+width: 50px;
+    padding: 5px;
+    border: solid 2px #c4afd6;
+    border-radius: 5px;
+   }
+   .
+ </style>
+ <!-- Product List View -->
+ <div id="product-list-view">
+  <main class="container">
+   <aside class="sidebar">
+    <!-- categories selected -->
+    <div class="selected-categories">
+     <div class="category-tag">
+      Clothing
+      <span class="remove-tag" onclick="removeTag(this)">
+       ×
+      </span>
+     </div>
+     <div class="category-tag">
+      Shoes
+      <span class="remove-tag" onclick="removeTag(this)">
+       ×
+      </span>
+     </div>
+     <div class="category-tag">
+      Accessories
+      <span class="remove-tag" onclick="removeTag(this)">
+       ×
+      </span>
+     </div>
+     <div class="filter-actions">
+      <button class="clear-filter-btn">
+       <i class="fas fa-times-circle">
+       </i>
+       Clear Filter
+      </button>
+     </div>
     </div>
-    <div class="product-info">
-        <div class="brand">
-            IVORY THEORY BRIDAL
-        </div>
-        <h1>
-ANNE
-</h1>
-        <div class="price">
-            $999.00
-            <span style="font-size: 0.9rem; color: #888;">
-USD
-</span>
-        </div>
-        <div class="desc">
-            Ethereal beaded &amp; fitted gown with straps in a light and lovely ivory crepe.
-        </div>
-        <div class="options">
-            <strong>
-OPTIONS:
-</strong> Off White
-        </div>
-        <div class="size-select">
-            <label>
-                <strong>
-SELECT A SIZE:
-</strong>
-            </label>
-            <select>
-                <option value="10">
-                    10
-                </option>
-            </select>
-        </div>
-        <div class="quantity-select">
-            <label>
-                <strong>
-SELECT QUANTITY:
-</strong>
-            </label>
-            <select>
-                <option value="1">
-                    1
-                </option>
-            </select>
-        </div>
-        <div class="shipping-option">
-            <label>
-                <input type="radio" checked="" name="shipping"> Ship to Me
-            </label>
-            <br>
-            <label>
-                <input type="radio" name="shipping"> Pick Up at East Cobb Boutique
-            </label>
-            <div class="store-pickup">
-                110 Jones St Marietta GA, 33033
-            </div>
-        </div>
-        <button>
-            ADD TO CART
-        </button>
-        <div class="sku">
-            SKU: 14228356
-        </div>
+    <!-- Filter Search -->
+    <div class="filter m-3">
+     <div class="collapsible-container">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+       <span>
+        Filter
+       </span>
+       <div class="chevron">
+       </div>
+      </div>
+      <div class="collapsible-content">
+       <input type="text" placeholder="Type to filter">
+      </div>
+     </div>
     </div>
-</div>
-<div class="container description">
-    <div>
-        A sexy classic fit-to-flare with delicate beading on the straps and bodice. Light ivory crepe.
+    <!-- Filter brands -->
+    <div class="filter m-3">
+     <div class="collapsible-container">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+       <span>
+        Brands
+       </span>
+       <div class="chevron">
+       </div>
+      </div>
+      <div class="collapsible-content">
+       <select id="ddl-brands">
+       </select>
+      </div>
+     </div>
+    </div>
+    <!-- Filter Categories -->
+    <div class="filter m-3 categories">
+     <div class="collapsible-container">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+       <span>
+        Categories
+       </span>
+       <div class="chevron">
+       </div>
+      </div>
+      <div class="collapsible-content">
+       <ul id="list-categories">
+       </ul>
+      </div>
+     </div>
+    </div>
+    <!-- Filter Sizes -->
+    <div class="filter m-3 categories">
+     <div class="collapsible-container">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+       <span>
+        Sizes
+       </span>
+       <div class="chevron">
+       </div>
+      </div>
+      <div class="collapsible-content">
+       <span>
+        <div class="sizes">
+         <div class="size-option">
+          36
+         </div>
+         <div class="size-option">
+          37
+         </div>
+         <div class="size-option">
+          38
+         </div>
+         <div class="size-option">
+          39
+         </div>
+         <div class="size-option">
+          40
+         </div>
+         <div class="size-option">
+          41
+         </div>
+         <div class="size-option">
+          42
+         </div>
+         <div class="size-option">
+          43
+         </div>
+         <div class="size-option">
+          44
+         </div>
+        </div>
+       </span>
+      </div>
+     </div>
+    </div>
+    <!-- Filter Options -->
+    <div class="filter m-3 categories">
+     <div class="collapsible-container">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+       <span>
+        Options
+       </span>
+       <div class="chevron">
+       </div>
+      </div>
+      <div class="collapsible-content">
+       <ul class="checkbox-list">
+        <li>
+         <label>
+          <input type="checkbox">
+          Ship To Me
+         </label>
+        </li>
+        <li>
+         <label>
+          <input type="checkbox">
+          Pickup In-Store
+         </label>
+        </li>
+        <li>
+         <label>
+          <input type="checkbox">
+          On Sale Items
+         </label>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <!-- Filter Policy -->
+    <div class="filter m-3 categories">
+     <div class="collapsible-container">
+      <div class="collapsible-header" onclick="toggleCollapse(this)">
+       <span>
+        Return Policy
+       </span>
+       <div class="chevron">
+       </div>
+      </div>
+      <div class="collapsible-content">
+       <span>
+        Due to the nature of our inventory, all sales are final. No returns or exchanges.
+       </span>
+      </div>
+     </div>
+    </div>
+   </aside>
+   <section class="products">
+    <div class="result-count">
+     <strong id="label-result-count">
+      0
+     </strong>
+     results
+    </div>
+    <div class="controls">
+     <div class="control-group">
+      <label for="sort">
+      </label>
+      <select id="sort" name="sort">
+       <option value="default">
+        Sort By
+       </option>
+       <option value="price-asc">
+        Price: Low to High
+       </option>
+       <option value="price-desc">
+        Price: High to Low
+       </option>
+       <option value="name-asc">
+        Name: A to Z
+       </option>
+       <option value="name-desc">
+        Name: Z to A
+       </option>
+      </select>
+     </div>
     </div>
     <br>
-    <div style="margin-top: 1rem;">
-        <a href="#" style="color: #aa82c5; text-decoration: underline;">
-Ivory Theory Bridal Size Chart
-</a>
+    <div class="grid" id="list-products">
+     <!-- Add more products here -->
     </div>
-</div>
-
-
-
-<script>
-
-	$( document ).ready(function() {
-		
-		const locationID = '3d97dcf1';
-		const itemID = 1755799;
-
-	   getInnerDetails(locationID,itemID);
-
-	});
-
-	function getInnerDetails(locationID,itemID){
-		alert(itemID);
-		const url = "https://api.welcomemat.com/latest/bridallive/items/"+ locationID + "/" + itemID;
-		const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-
-		$.ajax({
-        url: proxyUrl+url,
-        type: "POST",
-        dataType: "json", // Expected data type from the server
-        success: function(data) {
-            // Handle successful response data
-            console.log(data);
-        },
-        error: function(xhr, status, error) {
-            // Handle errors
-            console.error("AJAX error:", status, error);
+    <div class="pagination" id="list-paging">
+    </div>
+   </section>
+  </main>
+ </div>
+ <!-- Product Detail View -->
+ <div id="product-detail-view" style="display:none;">
+  <div id="product-detail-content">
+  </div>
+ </div>
+ <script>
+  function showProduct(productId) {
+        const locationID = '3d97dcf1';
+        //const productId = productId;
+        //alert(locationID);
+        //alert(productId);
+        getInnerDetails(locationID,productId);
+      //alert(productId);
+      document.getElementById('product-list-view').style.display = 'none';
+      document.getElementById('product-detail-view').style.display = 'block';
+      // Define a content object dynamically using bracket notation
+      const content = {};
+      content[productId] = `
+        <div class="back-button">
+            <a href="javascript:void(0)" onclick="goBack()">← BACK</a>
+          </div>
+          <div class="container">
+            <div class="image-section">
+              <img id="product-main-image" class="main-image" src="" alt="Main Product Image"  onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';">
+              <div class="thumbnail-row">
+                <img src=""  onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';" alt="Thumb1">
+                <img src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb2">
+                <img src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb3">
+                <img src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb4">
+              </div>
+               <div class="tab-header">
+                <button class="tab-button active" data-tab="tab-description">Description</button>
+                <button class="tab-button" data-tab="tab-reviews">Reviews</button>
+              </div>
+              <div id="tab-description" class="tab-content active">
+                <p>This is the product description content.</p>
+              </div>
+              <div id="tab-reviews" class="tab-content">
+                <p>This product has not been reviewed. Please login to leave the first!</p>
+              </div>
+            </div>
+            <div class="product-info">
+              <div id="product-name" class="brand">IVORY THEORY BRIDAL</div>
+              <h1>ANNE</h1>
+              <div id="product-price" class="price">$999.00 <span style="font-size: 0.9rem; color: #888;">USD</span></div>
+              <div id="product-descr" class="desc">Ethereal beaded & fitted gown with straps in a light and lovely ivory crepe.</div>
+              <div class="options"><strong>OPTIONS:</strong> Off White</div>
+               <div class"option-select"><img class="option-img" src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb1">
+                </div> 
+                <div class="options"><strong>SELECT A SIZE:</strong> </div>
+                  <div class="sizes">
+                    <div class="size-option">36</div>
+                    <div class="size-option">37</div>
+                    <div class="size-option">38</div>
+                    <div class="size-option">39</div>
+                    <div class="size-option">40</div>
+                    <div class="size-option">41</div>
+                    <div class="size-option">42</div>
+                    <div class="size-option">43</div>
+                    <div class="size-option">44</div>
+                  </div>
+              <div class="quantity-wrapper">
+              <div class="quantity-label"><strong>QUANTITY</strong> </div>
+                <input type="number" id="quantity" name="quantity" class="quantity-input" value="1" min="1">
+              </div>
+            <div class="option">
+            <label>
+              <input type="radio" name="delivery" checked>
+              Ship To Me
+            </label>
+          </div>
+          <div class="option">
+            <label>
+              <input type="radio" name="delivery">
+              Pickup In-Store
+            </label>
+            </div>
+            <div class="option">
+              <label>
+              <input type="radio" name="delivery">
+              On Sale Items
+            </label>
+            </div>
+              <button class="add-cart">ADD TO CART</button>
+              <div class="sku">SKU: 14228356</div>
+            </div>
+          </div>
+          <div class="container description">
+            <div>A sexy classic fit-to-flare with delicate beading on the straps and bodice. Light ivory crepe.</div><br>
+            <div style="margin-top: 1rem;">
+              <a href="#" style="color: #aa82c5; text-decoration: underline;">Ivory Theory Bridal Size Chart</a>
+            </div>
+          </div>
+      `;
+      document.getElementById('product-detail-content').innerHTML = content[productId];
+    }
+    function goBack() {
+      document.getElementById('product-detail-view').style.display = 'none';
+      document.getElementById('product-list-view').style.display = 'block';
+    }
+ </script>
+ <script>
+  $( document ).ready(function() {
+        const locationID = '3d97dcf1';
+        const itemID = 1755799;
+           getCategories(locationID);
+           getBrands(locationID);
+           getProducts(locationID);
+           $('.page-item').on('click', function() {
+                alert("Page no:");
+              //const page = $(this).data('page');
+              //  alert("Page no:" + page);
+            });
+            // Delegated pagination click events
+            $('#list-paging').on('click', '.page-item', function (e) {
+                e.preventDefault();
+                const selectedPage = parseInt($(this).data('page'));
+                if (!isNaN(selectedPage) && selectedPage !== currentPage) {
+                    getProducts(locationID, selectedPage); // assumes currentLocationID is set
+                }
+            });
+            $('#list-paging').on('click', '.prev:not(.disabled)', function (e) {
+                e.preventDefault();
+                if (currentPage > 1) {
+                    getProducts(locationID, currentPage - 1);
+                }
+            });
+            $('#list-paging').on('click', '.next:not(.disabled)', function (e) {
+                e.preventDefault();
+                getProducts(locationID, currentPage + 1);
+            });
+        });
+        function getInnerDetails(locationID,itemID){
+            //alert(itemID);
+            const url = "https://api.welcomemat.com/latest/bridallive/items/"+ locationID + "/" + itemID;
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json", // Expected data type from the server
+                success: function(data) {
+                    //alert("Product Name : " + data.name);
+                    $("#product-name").text(data.name);
+                    $("#product-price").text(data.price);
+                    $("#product-descr").text(data.description);
+                    $("#product-color").text(data.color);
+                    const fallbackImage = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+                    const finalImageUrl = data.result.coverImageUrl ? data.result.coverImageUrl : fallbackImage;
+                    $("#product-main-image").attr("src", finalImageUrl);
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    console.error("AJAX error:", status, error);
+                }
+            });
         }
-    });
-
-
-	}
-</script>
+        function getCategories(locationID){
+            //alert(itemID);
+            const url = "https://api.welcomemat.com/latest/bridallive/items/categories/"+ locationID;
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json", // Expected data type from the server
+                success: function(data) {
+                     data.departments.forEach(function (dept) {
+                          $('#list-categories').append(`<li id=${dept.id}>${dept.name}  <div class="chevron-right">
+       </div></li>`);
+                        });
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    console.error("AJAX error:", status, error);
+                }
+            });
+        }
+        function getBrands(locationID){
+            //alert(itemID);
+            const url = "https://api.welcomemat.com/latest/bridallive/items/categories/"+ locationID;
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json", // Expected data type from the server
+                success: function(data) {
+                     data.vendors.forEach(function (ven) {
+                          $('#ddl-brands').append(`<option id=${ven.id}>${ven.name}</option>`);
+                        });
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    console.error("AJAX error:", status, error);
+                }
+            });
+        }
+        let currentPage = 1;
+        const maxVisiblePages = 10;
+        const pageSize = 10;
+        function getProducts(locationID, page = 1) {
+            const url = "https://api.welcomemat.com/latest/bridallive/items/" + locationID;
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: JSON.stringify({
+                    status: "active", // <- confirm this is valid per API docs
+                    size: pageSize,
+                    page: page
+                }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    const itemsCount = data.total || 0;
+                    const pageCount = Math.ceil(itemsCount / pageSize);
+                    currentPage = page;
+                    $('#label-result-count').text(itemsCount);
+                    $('#list-products').empty(); // clear previous products
+                    data.result.forEach(function (prod) {
+                        $('#list-products').append(`
+                            <div id="${prod.id}" class="product" onclick='showProduct("${prod.id}")'>
+                                <img alt="${prod.name}" src="${prod.coverImageUrl}">
+                                <h4>${prod.name}</h4>
+                                <p>${prod.color} ${prod.description}</p>
+                                <span>$999.00</span>
+                            </div>
+                        `);
+                    });
+                    renderPagination(currentPage, pageCount);
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX error:", status, error);
+                }
+            });
+        }
+        function renderPagination(currentPage, pageCount) {
+            //alert("currentPage: " + currentPage);
+            //alert("pageCount: " + pageCount);
+            $('#list-paging').empty();
+            // Prev button
+            const isFirstPage = currentPage === 1;
+            $('#list-paging').append(`<a href="#" class="prev ${isFirstPage ? 'disabled' : ''}">«</a>`);
+            // Calculate window of pages
+            const currentGroup = Math.floor((currentPage - 1) / maxVisiblePages);
+            const startPage = currentGroup * maxVisiblePages + 1;
+            const endPage = Math.min(startPage + maxVisiblePages - 1, pageCount);
+            for (let i = startPage; i <= endPage; i++) {
+                const activeClass = (i === currentPage) ? 'active' : '';
+                $('#list-paging').append(`<a href="#" class="page-item ${activeClass}" data-page="${i}">${i}</a>`);
+            }
+            // Next button
+            const isLastPage = currentPage === pageCount;
+            $('#list-paging').append(`<a href="#" class="next ${isLastPage ? 'disabled' : ''}">»</a>`);
+        }
+        // <- collapse function
+        function toggleCollapse(headerElement) {
+          // Toggle 'active' class on header
+          headerElement.classList.toggle('active');
+          // Get the next sibling (.collapsible-content)
+          const content = headerElement.nextElementSibling;
+          if (content && content.classList.contains('collapsible-content')) {
+            if (content.style.display === 'block') {
+              content.style.display = 'none';
+            } else {
+              content.style.display = 'block';
+            }
+          }
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+          const tabButtons = document.querySelectorAll(".tab-button");
+          const tabContents = document.querySelectorAll(".tab-content");
+          tabButtons.forEach(button => {
+            button.addEventListener("click", () => {
+              // Remove active class from all
+              tabButtons.forEach(btn => btn.classList.remove("active"));
+              tabContents.forEach(content => content.classList.remove("active"));
+              // Add to clicked
+              button.classList.add("active");
+              const tabId = button.getAttribute("data-tab");
+              document.getElementById(tabId).classList.add("active");
+            });
+          });
+        });
+ </script>
