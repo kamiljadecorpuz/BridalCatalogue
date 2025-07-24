@@ -351,6 +351,7 @@ border: solid 3px #afa3c2;
       border: 2px solid #ccc;
       border-radius: 6px;
       background-color: white;
+      color:#A18CC1 !important;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.3s ease;
@@ -359,15 +360,16 @@ border: solid 3px #afa3c2;
     .size-option:hover {
       border-color: #A18CC1;
       background-color:#A18CC1;
-      color:white;
+      color:white !important;
     }
     .size-option:active {
       border-color: #A18CC1;
       background-color:#A18CC1;
+      color:white !important;
     }
     .size-option.selected {
       background-color: #A18CC1;
-      color: #fff;
+      color:white !important;
       border-color: #A18CC1;
     }
     @media (max-width: 500px) {
@@ -561,12 +563,15 @@ border: solid 3px #afa3c2;
       display: block;
     }
 /* Description and Reviews */    
-   .tab-header {
-      display: flex;
-      border-bottom: 1px solid #eee;
-      margin-bottom: 10px;
+    .menu-tabs {
+     margin: 0 300px;
     }
-    .tab-button {
+    .tab {
+      overflow: hidden;
+      border-bottom: 2px solid #eee;
+    }
+    /* Style the buttons that are used to open the tab content */
+    .tab button {
       padding: 10px 0;
       margin-right: 30px;
       background: none;
@@ -576,29 +581,29 @@ border: solid 3px #afa3c2;
       color: #aaa;
       font-weight: bold;
       letter-spacing: 1px;
-      font-size: 13px;
       text-transform: uppercase;
       position: relative;
+      transition: 0.3s;
+      width: 300px;
     }
-    .tab-button.active {
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: transparent;
       color: #9b8cb8;
     }
-    .tab-button.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #9b8cb8;
+    /* Create an active/current tablink class */
+    .tab button.active {
+        color: #9b8cb8;
+        background-color: transparent;
+        border-bottom: 2px solid #9b8cb8;
+        border-radius: 0;
     }
-    .tab-content {
+    /* Style the tab content */
+    .tabcontent {
       display: none;
-      font-size: 14px;
-      color: #333;
-    }
-    .tab-content.active {
-      display: block;
+      padding: 6px 12px;
+      border-top: none;
+      margin-top: 2em;
     }
     /* add to cart button*/
     .add-cart{
@@ -631,19 +636,78 @@ border: solid 3px #afa3c2;
     border-color: #aa82c5;}
     /* Option thumbnail-selection */
    .option-img{
-width: 50px;
+    width: 50px;
     padding: 5px;
     border: solid 2px #c4afd6;
     border-radius: 5px;
    }
-   .
+   /* Image Gallery */    
+   /*  .gallery {
+      max-width: 400px;
+      text-align: center;
+    }
+    .main-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .thumbnails {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .thumbnails img {
+      width: 60px;
+      height: 90px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      transition: border 0.3s;
+    }
+    .thumbnails img.active {
+      border-color: #333;
+    } */
+     #loader {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 9999;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 5px solid #ccc;
+        border-top: 5px solid #333;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .prodcolor{
+        background-color: #aa82c5 !important;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        margin-right: 5px;
+        line-height: 3;
+        white-space: pre;
+        font-size: .8em;
+      }
  </style>
  <!-- Product List View -->
  <div id="product-list-view">
   <main class="container">
    <aside class="sidebar">
     <!-- categories selected -->
-    <div class="selected-categories">
+    <!-- <div class="selected-categories">
      <div class="category-tag">
       Clothing
       <span class="remove-tag" onclick="removeTag(this)">
@@ -669,7 +733,7 @@ width: 50px;
        Clear Filter
       </button>
      </div>
-    </div>
+    </div>-->
     <!-- Filter Search -->
     <div class="filter m-3">
      <div class="collapsible-container">
@@ -681,7 +745,7 @@ width: 50px;
        </div>
       </div>
       <div class="collapsible-content">
-       <input type="text" placeholder="Type to filter">
+       <input type="text" placeholder="Type to filter" id="txt-search">
       </div>
      </div>
     </div>
@@ -718,101 +782,101 @@ width: 50px;
      </div>
     </div>
     <!-- Filter Sizes -->
-    <div class="filter m-3 categories">
-     <div class="collapsible-container">
-      <div class="collapsible-header" onclick="toggleCollapse(this)">
-       <span>
-        Sizes
-       </span>
-       <div class="chevron">
-       </div>
-      </div>
-      <div class="collapsible-content">
-       <span>
-        <div class="sizes">
-         <div class="size-option">
-          36
-         </div>
-         <div class="size-option">
-          37
-         </div>
-         <div class="size-option">
-          38
-         </div>
-         <div class="size-option">
-          39
-         </div>
-         <div class="size-option">
-          40
-         </div>
-         <div class="size-option">
-          41
-         </div>
-         <div class="size-option">
-          42
-         </div>
-         <div class="size-option">
-          43
-         </div>
-         <div class="size-option">
-          44
-         </div>
-        </div>
-       </span>
-      </div>
-     </div>
-    </div>
+    <!--<div class="filter m-3 categories">-->
+    <!-- <div class="collapsible-container">-->
+    <!--  <div class="collapsible-header" onclick="toggleCollapse(this)">-->
+    <!--   <span>-->
+    <!--    Sizes-->
+    <!--   </span>-->
+    <!--   <div class="chevron">-->
+    <!--   </div>-->
+    <!--  </div>-->
+    <!--  <div class="collapsible-content">-->
+    <!--   <span>-->
+    <!--    <div class="sizes">-->
+    <!--     <div class="size-option">-->
+    <!--      36-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      37-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      38-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      39-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      40-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      41-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      42-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      43-->
+    <!--     </div>-->
+    <!--     <div class="size-option">-->
+    <!--      44-->
+    <!--     </div>-->
+    <!--    </div>-->
+    <!--   </span>-->
+    <!--  </div>-->
+    <!-- </div>-->
+    <!--</div>-->
     <!-- Filter Options -->
-    <div class="filter m-3 categories">
-     <div class="collapsible-container">
-      <div class="collapsible-header" onclick="toggleCollapse(this)">
-       <span>
-        Options
-       </span>
-       <div class="chevron">
-       </div>
-      </div>
-      <div class="collapsible-content">
-       <ul class="checkbox-list">
-        <li>
-         <label>
-          <input type="checkbox">
-          Ship To Me
-         </label>
-        </li>
-        <li>
-         <label>
-          <input type="checkbox">
-          Pickup In-Store
-         </label>
-        </li>
-        <li>
-         <label>
-          <input type="checkbox">
-          On Sale Items
-         </label>
-        </li>
-       </ul>
-      </div>
-     </div>
-    </div>
+    <!--<div class="filter m-3 categories">-->
+    <!-- <div class="collapsible-container">-->
+    <!--  <div class="collapsible-header" onclick="toggleCollapse(this)">-->
+    <!--   <span>-->
+    <!--    Options-->
+    <!--   </span>-->
+    <!--   <div class="chevron">-->
+    <!--   </div>-->
+    <!--  </div>-->
+    <!--  <div class="collapsible-content">-->
+    <!--   <ul class="checkbox-list">-->
+    <!--    <li>-->
+    <!--     <label>-->
+    <!--      <input type="checkbox">-->
+    <!--      Ship To Me-->
+    <!--     </label>-->
+    <!--    </li>-->
+    <!--    <li>-->
+    <!--     <label>-->
+    <!--      <input type="checkbox">-->
+    <!--      Pickup In-Store-->
+    <!--     </label>-->
+    <!--    </li>-->
+    <!--    <li>-->
+    <!--     <label>-->
+    <!--      <input type="checkbox">-->
+    <!--      On Sale Items-->
+    <!--     </label>-->
+    <!--    </li>-->
+    <!--   </ul>-->
+    <!--  </div>-->
+    <!-- </div>-->
+    <!--</div>-->
     <!-- Filter Policy -->
-    <div class="filter m-3 categories">
-     <div class="collapsible-container">
-      <div class="collapsible-header" onclick="toggleCollapse(this)">
-       <span>
-        Return Policy
-       </span>
-       <div class="chevron">
-       </div>
-      </div>
-      <div class="collapsible-content">
-       <span>
-        Due to the nature of our inventory, all sales are final. No returns or exchanges.
-       </span>
-      </div>
-     </div>
-    </div>
+    <!--<div class="filter m-3 categories">-->
+    <!-- <div class="collapsible-container">-->
+    <!--  <div class="collapsible-header" onclick="toggleCollapse(this)">-->
+    <!--   <span>-->
+    <!--    Return Policy-->
+    <!--   </span>-->
+    <!--   <div class="chevron">-->
+    <!--   </div>-->
+    <!--  </div>-->
+    <!--  <div class="collapsible-content">-->
+    <!--   <span>-->
+    <!--    Due to the nature of our inventory, all sales are final. No returns or exchanges.-->
+    <!--   </span>-->
+    <!--  </div>-->
+    <!-- </div>-->
+    <!--</div>-->
    </aside>
    <section class="products">
     <div class="result-count">
@@ -845,6 +909,10 @@ width: 50px;
      </div>
     </div>
     <br>
+    <div id="loader" style="display: none !important;">
+     <div class="spinner">
+     </div>
+    </div>
     <div class="grid" id="list-products">
      <!-- Add more products here -->
     </div>
@@ -859,11 +927,11 @@ width: 50px;
   </div>
  </div>
  <script>
-  function showProduct(productId) {
+  function showProduct(productId,vendorId,departmentId) {
         const locationID = '3d97dcf1';
-        //const productId = productId;
-        //alert(locationID);
-        //alert(productId);
+      //const productId = productId;
+      //alert(vendorId);
+      //alert(departmentId);
         getInnerDetails(locationID,productId);
       //alert(productId);
       document.getElementById('product-list-view').style.display = 'none';
@@ -876,73 +944,72 @@ width: 50px;
           </div>
           <div class="container">
             <div class="image-section">
-              <img id="product-main-image" class="main-image" src="" alt="Main Product Image"  onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';">
-              <div class="thumbnail-row">
-                <img src=""  onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';" alt="Thumb1">
-                <img src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb2">
-                <img src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb3">
-                <img src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb4">
-              </div>
-               <div class="tab-header">
-                <button class="tab-button active" data-tab="tab-description">Description</button>
-                <button class="tab-button" data-tab="tab-reviews">Reviews</button>
-              </div>
-              <div id="tab-description" class="tab-content active">
-                <p>This is the product description content.</p>
-              </div>
-              <div id="tab-reviews" class="tab-content">
-                <p>This product has not been reviewed. Please login to leave the first!</p>
+              <img id="product-main-image" class="main-image" src="" alt="Main Product Image">
+              <div class="thumbnail-row" id="list-images">
               </div>
             </div>
             <div class="product-info">
-              <div id="product-name" class="brand">IVORY THEORY BRIDAL</div>
-              <h1>ANNE</h1>
-              <div id="product-price" class="price">$999.00 <span style="font-size: 0.9rem; color: #888;">USD</span></div>
-              <div id="product-descr" class="desc">Ethereal beaded & fitted gown with straps in a light and lovely ivory crepe.</div>
-              <div class="options"><strong>OPTIONS:</strong> Off White</div>
-               <div class"option-select"><img class="option-img" src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb1">
+              <div class="brand"> <span id="product-brand"></span> -  <span id="product-category"></span> - <span id="product-color"> </span> </div>
+              <h1 id="product-name" >ANNE</h1>
+              <div class="price"><strong><span id="product-price-sale"></span></strong> <span style="font-size: 0.9rem; color: #888;">USD</span></div>
+              <div class="price" id="orig-price"><span  id="product-price-orig" style="text-decoration: line-through"></span> <span style="font-size: 0.9rem; color: #888;">USD    (Original Price)</span></div>
+              <div hidden id="product-descr" class="desc">Ethereal beaded & fitted gown with straps in a light and lovely ivory crepe.</div>
+              <div class="options"><strong>AVAILABLE COLORS</strong></div>
+               <div class"option-select" id="list-color">
+               <img hidden class="option-img" src="https://irt-cdn.multiscreensite.com/612903d8e3464cf0aaf1abc3fd131900/dms3rep/multi/dress1.jpg" alt="Thumb1">
                 </div> 
-                <div class="options"><strong>SELECT A SIZE:</strong> </div>
-                  <div class="sizes">
-                    <div class="size-option">36</div>
-                    <div class="size-option">37</div>
-                    <div class="size-option">38</div>
-                    <div class="size-option">39</div>
-                    <div class="size-option">40</div>
-                    <div class="size-option">41</div>
-                    <div class="size-option">42</div>
-                    <div class="size-option">43</div>
-                    <div class="size-option">44</div>
+                <br/>
+                <div class="options"><strong>AVAILABLE SIZES</strong> </div>
+                  <div class="sizes" id="opt-size">
                   </div>
-              <div class="quantity-wrapper">
-              <div class="quantity-label"><strong>QUANTITY</strong> </div>
-                <input type="number" id="quantity" name="quantity" class="quantity-input" value="1" min="1">
-              </div>
-            <div class="option">
-            <label>
-              <input type="radio" name="delivery" checked>
-              Ship To Me
-            </label>
+                  <br/>
+                  <div class="options"><strong>AVAILABLE STOCKS</strong></div>
+                   <span id="product-stocks"></span>
+                  <br/>
+                     <div class="filter m-3">
+                         <div class="collapsible-container">
+                          <div class="collapsible-header" onclick="toggleCollapse(this)">
+                           <span>
+                          <strong>DESCRIPTION</strong> 
+                           </span>
+                           <div class="chevron">
+                           </div>
+                          </div>
+                          <div class="collapsible-content">
+                            <p id="product-descr-tab">This is the product description content.</p>
+                          </div>
+                         </div>
+                        </div>
+                       <div class="filter m-3">
+                         <div class="collapsible-container">
+                          <div class="collapsible-header" onclick="toggleCollapse(this)">
+                           <span>
+                          <strong>REVIEWS</strong> 
+                           </span>
+                           <div class="chevron">
+                           </div>
+                          </div>
+                          <div class="collapsible-content">
+                          <p>This product has not been reviewed. Please login to leave the first!</p>
+                          </div>
+                         </div>
+                        </div>
+              <div class="sku">SKU: <span id="product-id">14228356</span></div>
+            </div>
           </div>
-          <div class="option">
-            <label>
-              <input type="radio" name="delivery">
-              Pickup In-Store
-            </label>
+         <div class="menu-tabs" hidden>
+              <div class="tab">
+                  <button class="tablinks" onclick="openMenu(event, 'Description')">Description</button>
+                  <button class="tablinks" onclick="openMenu(event, 'Reviews')">Reviews</button>
+                </div>
+                <!-- Tab content -->
+                <div id="Description" class="tabcontent">
+                  <p id="product-descr-tab">This is the product description content.</p>
+                </div>
             </div>
-            <div class="option">
-              <label>
-              <input type="radio" name="delivery">
-              On Sale Items
-            </label>
-            </div>
-              <button class="add-cart">ADD TO CART</button>
-              <div class="sku">SKU: 14228356</div>
-            </div>
-          </div>
-          <div class="container description">
-            <div>A sexy classic fit-to-flare with delicate beading on the straps and bodice. Light ivory crepe.</div><br>
-            <div style="margin-top: 1rem;">
+          <div class="container description" hidden>
+            <div hidden>A sexy classic fit-to-flare with delicate beading on the straps and bodice. Light ivory crepe.</div><br>
+            <div style="margin-top: 1rem;" hidden>
               <a href="#" style="color: #aa82c5; text-decoration: underline;">Ivory Theory Bridal Size Chart</a>
             </div>
           </div>
@@ -956,13 +1023,14 @@ width: 50px;
  </script>
  <script>
   $( document ).ready(function() {
-        const locationID = '3d97dcf1';
-        const itemID = 1755799;
-           getCategories(locationID);
-           getBrands(locationID);
-           getProducts(locationID);
-           $('.page-item').on('click', function() {
-                alert("Page no:");
+      const locationID = '3d97dcf1';
+      const itemID = 1755799;
+         getCategories(locationID);
+         getBrands(locationID);
+         //getProducts(locationID);
+         getAllProducts(locationID);
+         $('.page-item').on('click', function() {
+              alert("Page no:");
               //const page = $(this).data('page');
               //  alert("Page no:" + page);
             });
@@ -984,60 +1052,138 @@ width: 50px;
                 e.preventDefault();
                 getProducts(locationID, currentPage + 1);
             });
+            $('#ddl-brands').on('change', function () {
+                const vendorId = $(this).val();
+                activeVendorId = $(this).val();
+                applyFilters();
+                if (vendorId) {
+                    filterByVendorId(vendorId);
+                } else {
+                    showAllProducts();
+                }
+            });
+            $('#txt-search').on('input', function () {
+                activeSearchText = $(this).val().trim().toLowerCase();
+                applyFilters();
+            });
+            $('#sort').on('change', function () {
+                activeSortOption = $(this).val();
+                applyFilters();
+            });
+           /* const thumbnails = document.querySelectorAll('.thumbnails img');
+            const mainImage = document.getElementById('currentImage');
+            let index = 0;
+                // Auto-slide every 3 seconds
+            setInterval(() => {
+              index = (index + 1) % thumbnails.length;
+              showImage(index);
+            }, 3000);
+            // Manual click override
+            thumbnails.forEach((thumb, i) => {
+              thumb.addEventListener('click', () => {
+                index = i;
+                showImage(index);
+              });
+            });*/
+      });
+      $(document).on('click', '.product', function () {
+            const id = $(this).data('id');
+            const vendorId = $(this).data('vendor');
+            const departmentId = $(this).data('department');
+            showProduct(id, vendorId, departmentId);
         });
-        function getInnerDetails(locationID,itemID){
-            //alert(itemID);
-            const url = "https://api.welcomemat.com/latest/bridallive/items/"+ locationID + "/" + itemID;
-            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      function getInnerDetails(locationID, itemID) {
+            const url = `https://api.welcomemat.com/latest/bridallive/items/${locationID}/${itemID}`;
+            const fallbackImage = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
             $.ajax({
                 url: url,
                 type: "GET",
-                dataType: "json", // Expected data type from the server
-                success: function(data) {
-                    //alert("Product Name : " + data.name);
-                    $("#product-name").text(data.name);
-                    $("#product-price").text(data.price);
-                    $("#product-descr").text(data.description);
-                    $("#product-color").text(data.color);
-                    const fallbackImage = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
-                    const finalImageUrl = data.result.coverImageUrl ? data.result.coverImageUrl : fallbackImage;
-                    $("#product-main-image").attr("src", finalImageUrl);
-                },
-                error: function(xhr, status, error) {
-                    // Handle errors
-                    console.error("AJAX error:", status, error);
-                }
-            });
-        }
-        function getCategories(locationID){
-            //alert(itemID);
-            const url = "https://api.welcomemat.com/latest/bridallive/items/categories/"+ locationID;
-            $.ajax({
-                url: url,
-                type: "GET",
-                dataType: "json", // Expected data type from the server
-                success: function(data) {
-                     data.departments.forEach(function (dept) {
-                          $('#list-categories').append(`<li id=${dept.id}>${dept.name}  <div class="chevron-right">
-       </div></li>`);
+                dataType: "json",
+                success: function (data) {
+                    // Set text fields
+                    $("#product-name").text(data.name || "N/A");
+                    if (data.salePrice == "" || data.salePrice == null ) {
+                        $("#orig-price").hide();
+                    }
+                    $("#product-price-orig").text(data.regularPrice ? `$${data.regularPrice}` : "Price Unavailable");
+                    $("#product-price-sale").text(data.salePrice ? `$${data.salePrice}` : `$${data.regularPrice}`);
+                    $("#product-descr").text(data.description || "No description.");
+                    $("#product-descr-tab").text(data.description || "No description.");
+                    $("#product-color").text(data.color || "N/A");
+                    $("#product-id").text(data.itemNumber || "N/A");
+                    $("#product-stocks").text(data.quantityInStock || "N/A");
+                    $("#product-brand").text(data.vendorName || "N/A");
+                    $("#product-category").text(data.departmentName || "N/A");
+                    // Set main image with fallback
+                    const mainImageUrl = data.additionalImage1;
+                    $("#product-main-image").attr("src", mainImageUrl);
+                    // Clear and append size
+                    $("#opt-size").empty();
+                    if (data.size) {
+                        $("#opt-size").append(`<div class="size-option" data-id="${data.size}">${data.size}</div>`);
+                    }
+                    // Clear and append additional images
+                    $("#list-images").empty();
+                    if (Array.isArray(data.pictures)) {
+                        data.pictures.forEach(function (img) {
+                            const imageUrl = img.imageUrl || fallbackImage;
+                            $("#list-images").append(`
+                                <img src="${imageUrl}"
+                                     alt="${img.itemId || 'product image'}">
+                            `);
                         });
+                    }
+                    const colorStrings = data.colorString;
+                    const values = colorStrings.split(',');
+                    values.forEach((value, index) => {
+                      console.log(`${index + 1}. ${value}`);
+                      $("#list-color").append(`
+                                <span class="prodcolor">${value} </span>
+                            `);
+                    });
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX error:", status, error);
+                }
+            });
+        }
+      function getCategories(locationID){
+        //alert(itemID);
+        const url = "https://api.welcomemat.com/latest/bridallive/items/categories/"+ locationID;
+        $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json", // Expected data type from the server
+                success: function(data) {
+                    $('#list-categories').empty();
+                    $('#list-categories').append(`<li data-id="">All Categories</li>`); // Add reset option
+                    data.departments.forEach(function (dept) {
+                        $('#list-categories').append(`<li data-id="${dept.id}">${dept.name} <div class="chevron-right"></div></li>`);
+                    });
                 },
                 error: function(xhr, status, error) {
                     // Handle errors
                     console.error("AJAX error:", status, error);
                 }
             });
-        }
-        function getBrands(locationID){
-            //alert(itemID);
-            const url = "https://api.welcomemat.com/latest/bridallive/items/categories/"+ locationID;
-            $.ajax({
+      }
+      $(document).on('click', '#list-categories li', function () {
+            activeCategoryId = $(this).data('id') || '';
+            applyFilters();
+            // Optional: highlight the selected category
+            $('#list-categories li').removeClass('active');
+            $(this).addClass('active');
+        });
+      function getBrands(locationID){
+        //alert(itemID);
+        const url = "https://api.welcomemat.com/latest/bridallive/items/categories/"+ locationID;
+        $.ajax({
                 url: url,
                 type: "GET",
                 dataType: "json", // Expected data type from the server
                 success: function(data) {
                      data.vendors.forEach(function (ven) {
-                          $('#ddl-brands').append(`<option id=${ven.id}>${ven.name}</option>`);
+                          $('#ddl-brands').append(`<option id=${ven.id} value="${ven.id}">${ven.name}</option>`);
                         });
                 },
                 error: function(xhr, status, error) {
@@ -1045,17 +1191,23 @@ width: 50px;
                     console.error("AJAX error:", status, error);
                 }
             });
-        }
+      }
+        let fullProductList = [];
+        let filteredProducts = [];
         let currentPage = 1;
-        const maxVisiblePages = 10;
         const pageSize = 10;
-        function getProducts(locationID, page = 1) {
-            const url = "https://api.welcomemat.com/latest/bridallive/items/" + locationID;
+        const maxVisiblePages = 10;
+        let activeVendorId = '';
+        let activeSearchText = '';
+        let activeCategoryId = '';
+        let activeSortOption = 'default';
+        /*function getProducts(locationID, page = 1) {
+            const url = `https://api.welcomemat.com/latest/bridallive/items/${locationID}`;
             $.ajax({
                 url: url,
                 type: "POST",
                 data: JSON.stringify({
-                    status: "active", // <- confirm this is valid per API docs
+                    status: "A",
                     size: pageSize,
                     page: page
                 }),
@@ -1066,43 +1218,172 @@ width: 50px;
                     const pageCount = Math.ceil(itemsCount / pageSize);
                     currentPage = page;
                     $('#label-result-count').text(itemsCount);
-                    $('#list-products').empty(); // clear previous products
-                    data.result.forEach(function (prod) {
-                        $('#list-products').append(`
-                            <div id="${prod.id}" class="product" onclick='showProduct("${prod.id}")'>
-                                <img alt="${prod.name}" src="${prod.coverImageUrl}">
-                                <h4>${prod.name}</h4>
-                                <p>${prod.color} ${prod.description}</p>
-                                <span>$999.00</span>
-                            </div>
-                        `);
-                    });
+                    allProducts = data.result;
+                    fullProductList = [...fullProductList, ...data.result]; // optional: store for future filtering
+                    if (activeVendorId) {
+                        filterByVendorId(activeVendorId);
+                    } else {
+                        renderProducts(allProducts);
+                    }
                     renderPagination(currentPage, pageCount);
                 },
                 error: function (xhr, status, error) {
                     console.error("AJAX error:", status, error);
                 }
             });
+        }*/
+        // Fetch all products from all pages
+        function getAllProducts(locationID) {
+            const url = `https://api.welcomemat.com/latest/bridallive/items/${locationID}`;
+            fullProductList = [];
+            $('#loader').show();
+            function fetchPage(p) {
+                return $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: JSON.stringify({ status: "A", size: pageSize, page: p }),
+                    contentType: "application/json",
+                    dataType: "json"
+                });
+            }
+            fetchPage(1).done(function (data) {
+                const totalItems = data.total || 0;
+                const pageCount = Math.ceil(totalItems / pageSize);
+                fullProductList = [...data.result];
+                const requests = [];
+                for (let i = 2; i <= pageCount; i++) {
+                    requests.push(fetchPage(i));
+                }
+                $.when(...requests).done(function (...responses) {
+                    responses.forEach(res => {
+                        const pageData = Array.isArray(res) ? res[0] : res;
+                        fullProductList = fullProductList.concat(pageData.result);
+                    });
+                    // Show all products initially
+                    filteredProducts = [];
+                    currentPage = 1;
+                    renderPagedProducts(fullProductList, currentPage);
+                    renderPagination(currentPage, Math.ceil(fullProductList.length / pageSize));
+                     $('#loader').hide();
+                });
+            });
         }
+        // Show all products
+        function showAllProducts() {
+            $('#loader').show();
+            filteredProducts = [];
+            currentPage = 1;
+            renderPagedProducts(fullProductList, currentPage);
+            renderPagination(currentPage, Math.ceil(fullProductList.length / pageSize));
+            $('#loader').hide();
+        }
+        /*function filterByVendorId(vendorId) {
+            const filtered = allProducts.filter(prod => prod.vendorId === vendorId);
+            renderProducts(filtered);
+        }*/
+       // Filter by vendor ID
+        function filterByVendorId(vendorId) {
+            $('#loader').show();
+            filteredProducts = fullProductList.filter(prod => String(prod.vendorId) === String(vendorId));
+            currentPage = 1;
+            renderPagedProducts(filteredProducts, currentPage);
+            renderPagination(currentPage, Math.ceil(filteredProducts.length / pageSize));
+            $('#loader').hide();
+        }
+        function applyFilters() {
+            currentPage = 1;
+            // 1. Filter
+            filteredProducts = fullProductList.filter(prod => {
+                const matchesVendor = !activeVendorId || String(prod.vendorId) === String(activeVendorId);
+                const matchesSearch = !activeSearchText || prod.name.toLowerCase().includes(activeSearchText);
+                const matchesCategory = !activeCategoryId || String(prod.departmentId) === String(activeCategoryId);
+                return matchesVendor && matchesSearch && matchesCategory;
+            });
+            // 2. Sort
+            filteredProducts.sort((a, b) => {
+                switch (activeSortOption) {
+                    case 'price-asc':
+                        return parseFloat(a.regularPrice) - parseFloat(b.regularPrice);
+                    case 'price-desc':
+                        return parseFloat(b.regularPrice) - parseFloat(a.regularPrice);
+                    case 'name-asc':
+                        return a.name.localeCompare(b.name);
+                    case 'name-desc':
+                        return b.name.localeCompare(a.name);
+                    default:
+                        return 0; // no sort
+                }
+            });
+            // 3. Paginate and render
+            renderPagedProducts(filteredProducts, currentPage);
+            renderPagination(currentPage, Math.ceil(filteredProducts.length / pageSize));
+        }
+        function renderProducts(products) {
+            $('#label-result-count').text(itemsCount);
+            $('#list-products').empty();
+            products.forEach(function (prod) {
+                $('#list-products').append(`
+                    <div id="${prod.id}" class="product" 
+                        data-id="${prod.id}" 
+                        data-vendor=${prod.vendorId}
+                        data-department="${prod.departmentId}">
+                        <img alt="${prod.name}" src="${prod.coverImageUrl}">
+                        <h4>${prod.name}</h4>
+                        <p>${prod.color} ${prod.description}</p>
+                        <span>$ ${prod.regularPrice}</span>
+                    </div>
+                `);
+            });
+        }
+        // Render current page
+        function renderPagedProducts(sourceList, page) {
+            const start = (page - 1) * pageSize;
+            const end = start + pageSize;
+            const pagedItems = sourceList.slice(start, end);
+            $('#label-result-count').text(sourceList.length);
+            $('#list-products').empty();
+            pagedItems.forEach(prod => {
+                $('#list-products').append(`
+                    <div id="${prod.id}" class="product" 
+                        data-id="${prod.id}" 
+                        data-vendor="${prod.vendorId}"
+                        data-department="${prod.departmentId}">
+                        <img alt="${prod.name}" src="${prod.coverImageUrl}">
+                        <h4>${prod.name}</h4>
+                        <p>${prod.color} ${prod.description}</p>
+                        <span>$ ${prod.regularPrice}</span>
+                    </div>
+                `);
+            });
+        }
+        // Render pagination
         function renderPagination(currentPage, pageCount) {
-            //alert("currentPage: " + currentPage);
-            //alert("pageCount: " + pageCount);
             $('#list-paging').empty();
-            // Prev button
-            const isFirstPage = currentPage === 1;
-            $('#list-paging').append(`<a href="#" class="prev ${isFirstPage ? 'disabled' : ''}">«</a>`);
-            // Calculate window of pages
-            const currentGroup = Math.floor((currentPage - 1) / maxVisiblePages);
-            const startPage = currentGroup * maxVisiblePages + 1;
+            const isFirst = currentPage === 1;
+            const isLast = currentPage === pageCount;
+            $('#list-paging').append(`<a href="#" class="prev ${isFirst ? 'disabled' : ''}" data-page="${currentPage - 1}">«</a>`);
+            const group = Math.floor((currentPage - 1) / maxVisiblePages);
+            const startPage = group * maxVisiblePages + 1;
             const endPage = Math.min(startPage + maxVisiblePages - 1, pageCount);
             for (let i = startPage; i <= endPage; i++) {
-                const activeClass = (i === currentPage) ? 'active' : '';
-                $('#list-paging').append(`<a href="#" class="page-item ${activeClass}" data-page="${i}">${i}</a>`);
+                const active = i === currentPage ? 'active' : '';
+                $('#list-paging').append(`<a href="#" class="page-item ${active}" data-page="${i}">${i}</a>`);
             }
-            // Next button
-            const isLastPage = currentPage === pageCount;
-            $('#list-paging').append(`<a href="#" class="next ${isLastPage ? 'disabled' : ''}">»</a>`);
+            $('#list-paging').append(`<a href="#" class="next ${isLast ? 'disabled' : ''}" data-page="${currentPage + 1}">»</a>`);
         }
+        // Pagination click handler
+        $(document).on('click', '#list-paging a', function (e) {
+            e.preventDefault();
+            const $this = $(this);
+            if ($this.hasClass('disabled') || $this.hasClass('active')) return;
+            const page = parseInt($this.data('page'));
+            if (!isNaN(page)) {
+                currentPage = page;
+                const source = filteredProducts.length ? filteredProducts : fullProductList;
+                renderPagedProducts(source, currentPage);
+                renderPagination(currentPage, Math.ceil(source.length / pageSize));
+            }
+        });
         // <- collapse function
         function toggleCollapse(headerElement) {
           // Toggle 'active' class on header
@@ -1117,19 +1398,26 @@ width: 50px;
             }
           }
         }
-        document.addEventListener("DOMContentLoaded", function () {
-          const tabButtons = document.querySelectorAll(".tab-button");
-          const tabContents = document.querySelectorAll(".tab-content");
-          tabButtons.forEach(button => {
-            button.addEventListener("click", () => {
-              // Remove active class from all
-              tabButtons.forEach(btn => btn.classList.remove("active"));
-              tabContents.forEach(content => content.classList.remove("active"));
-              // Add to clicked
-              button.classList.add("active");
-              const tabId = button.getAttribute("data-tab");
-              document.getElementById(tabId).classList.add("active");
-            });
-          });
-        });
+        function openMenu(evt, tabName) {
+          // Declare all variables
+          var i, tabcontent, tablinks;
+          // Get all elements with class="tabcontent" and hide them
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          // Get all elements with class="tablinks" and remove the class "active"
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          // Show the current tab, and add an "active" class to the button that opened the tab
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        /*function showImage(i) {
+          mainImage.src = thumbnails[i].src;
+          thumbnails.forEach(img => img.classList.remove('active'));
+          thumbnails[i].classList.add('active');
+        }*/
  </script>
